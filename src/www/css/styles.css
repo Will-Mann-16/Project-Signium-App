@@ -1,0 +1,84 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+.statusbar-overlay {
+    background: #000000;
+}
+
+.incorrect-password {
+    color: red;
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.student-card {
+    border-radius: 50px;
+    border: 7px solid;
+    border-color: #000000;
+    position: fixed;
+    height: 60%;
+    width: 70%;
+    margin: 20% 8.125%;
+    text-align: center;
+    align-content: center;
+    background-color: white;
+}
+
+.date {
+    position: absolute;
+    left: -30%;
+    top: 5%;
+    width: 100%;
+}
+
+.time {
+    width: 100%;
+    position: absolute;
+    left: -30%;
+    top: 15%;
+}
+
+.name {
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    top: 40%;
+}
+
+.nickname {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    top: 50%;
+}
+
+.yeargroup {
+    position: absolute;
+    top: 75%;
+    left: 0%;
+    width: 100%;
+}
+
+.location {
+    position: absolute;
+    width: 100%;
+    top: 85%;
+    left: 0%;
+}
+
+.house {
+    position: absolute;
+    width: 100%;
+    left: 30%;
+    top: 5%;
+}
