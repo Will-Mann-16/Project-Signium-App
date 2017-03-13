@@ -42,46 +42,51 @@ $$(".select-locations").click(function() {
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     socket = io.connect("http://10.11.0.23:8081");
-    if (window.localStorage.getItem("student_logged_in") === "loggedin") {
-        runInitial();
-    } else {
-        myApp.loginScreen();
-        $$('.login-submit').on('click', function() {
-            var formData = myApp.formToJSON('#login-form');
-            var username = formData.username;
-            var password = formData.password;
-            socket.emit("socket_service_login", JSON.stringify({
-                username: username.toLowerCase()
-            }));
-            socket.on("service_socket_verification", function(data) {
-                data = JSON.parse(data);
-                if (data.id == -1) {
-                    $$('.incorrect-password').css("display", "block");
-                } else {
-                    var result = TwinBcrypt.compareSync(password, data.password);
-                    if (result == true) {
-                        window.localStorage.setItem("student_house", data.house);
-                        window.localStorage.setItem("student_id", data.id);
-                        window.localStorage.setItem("student_logged_in", "loggedin");
-                        myApp.closeModal();
-                        runInitial();
-                    } else {
+    if (socket.connected) {
+        if (window.localStorage.getItem("student_logged_in") === "loggedin") {
+            runInitial();
+        } else {
+            myApp.loginScreen();
+            $$('.login-submit').on('click', function() {
+                var formData = myApp.formToJSON('#login-form');
+                var username = formData.username;
+                var password = formData.password;
+                socket.emit("socket_service_login", JSON.stringify({
+                    username: username.toLowerCase()
+                }));
+                socket.on("service_socket_verification", function(data) {
+                    data = JSON.parse(data);
+                    if (data.id == -1) {
                         $$('.incorrect-password').css("display", "block");
+                    } else {
+                        var result = TwinBcrypt.compareSync(password, data.password);
+                        if (result == true) {
+                            window.localStorage.setItem("student_house", data.house);
+                            window.localStorage.setItem("student_id", data.id);
+                            window.localStorage.setItem("student_logged_in", "loggedin");
+                            myApp.closeModal();
+                            runInitial();
+                        } else {
+                            $$('.incorrect-password').css("display", "block");
+                        }
                     }
-                }
+                });
             });
-        });
+        }
+    } else {
+        myApp.popup(".popup-disconnected");
     }
 });
-function runInitial()
-{
-  var student_id = window.localStorage.getItem("student_id");
-  var student_house = window.localStorage.getItem("student_house");
-  loadLocations(student_id, student_house);
-  loadStudentData(student_id, student_house);
+
+function runInitial() {
+    var student_id = window.localStorage.getItem("student_id");
+    var student_house = window.localStorage.getItem("student_house");
+    loadLocations(student_id, student_house);
+    loadStudentData(student_id, student_house);
 }
 
 var locationArray;
+
 function loadLocations(mainID, house) {
     socket.emit("socket_service_request_locations", house);
     socket.on("service_socket_request_locations", function(packet) {
