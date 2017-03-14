@@ -8,13 +8,16 @@
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.willmann.wcsis"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.willmann.wcsis"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.willmann.wcsis"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.willmann.wcsis"
         }
     },
     "dependent_plugins": {}
