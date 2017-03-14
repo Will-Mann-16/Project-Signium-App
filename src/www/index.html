@@ -166,10 +166,6 @@
         <script>
             (function() {
                 var android = window.localStorage.getItem("android");
-                if (android == null) {
-                    window.localStorage.setItem("android", Framework7.prototype.device.android);
-                    android = Framework7.prototype.device.android;
-                }
                 if (android) {
                     Dom7('head').append(
                         '<link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">' +
