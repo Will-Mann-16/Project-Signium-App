@@ -165,7 +165,8 @@
         <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
         <script>
             (function() {
-                if (Framework7.prototype.device.android) {
+                var android = window.localStorage.getItem("android");
+                if (android) {
                     Dom7('head').append(
                         '<link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">' +
                         '<link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">' +

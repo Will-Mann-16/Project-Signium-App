@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.willmann.wcsis" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <feature name="BackgroundMode">
+        <param name="browser-package" value="BackgroundMode" />
+    </feature>
     <name>WCSIS</name>
     <description>
         Signing In App.
@@ -15,5 +21,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <splash src="assets/images/splash/default_splash.png" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientaition" value="portrait" />
 </widget>

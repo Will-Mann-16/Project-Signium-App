@@ -18,7 +18,17 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.willmann.wcsis"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.willmann.wcsis"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.willmann.wcsis"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.willmann.wcsis"
+        }
+    }
 }
