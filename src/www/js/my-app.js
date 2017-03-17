@@ -44,7 +44,6 @@ $$(document).on('deviceready', function() {
     socket = io.connect("http://10.11.0.23:8081");
     if (window.localStorage.getItem("student_logged_in") === "loggedin") {
         runInitial();
-        cordova.plugins.backgroundMode.enable();
     } else {
         myApp.loginScreen();
         $$('.login-submit').on('click', function() {
@@ -209,16 +208,6 @@ function loadStudentData(mainID, house) {
             }
         }
     });
-    showNotification(mainID, house);
-}
-
-function showNotification(id, house) {
-    socket.on("service_socket_send_notification", function(json) {
-        var result = JSON.parse(json);
-        if (result.House == house && result.ID == id) {
-            navigator.notification.alert(result.Content, null, 'Message from ' + result.Username, 'OK');
-        }
-    })
 }
 
 function updateLocation(location, id, house) {

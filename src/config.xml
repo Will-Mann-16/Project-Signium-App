@@ -31,8 +31,5 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
     <plugin name="cordova-plugin-splashscreen" />
-    <plugin name="cordova-plugin-background-mode" />
-    <plugin name="cordova-plugin-device" />
-    <plugin name="cordova-plugin-dialogs" />
     <splash src="assets/images/splash/default_splash.png" />
 </widget>
