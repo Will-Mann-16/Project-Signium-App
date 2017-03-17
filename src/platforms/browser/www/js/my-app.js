@@ -213,7 +213,8 @@ function loadStudentData(mainID, house) {
 
 function showNotification(id, house) {
     socket.on("service_socket_send_notification", function(json) {
-        json = JSON.parse(json);
+        var result = JSON.parse(json);
+        navigator.notification.alert(result.Content, null, 'Message from ' + result.Username, 'OK');
     })
 }
 
